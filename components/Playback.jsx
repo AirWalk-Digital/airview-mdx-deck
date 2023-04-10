@@ -4,12 +4,8 @@ import Box from '@mui/material/Box';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Grid from '@mui/material/Grid'; 
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import { useTheme } from '@mui/material/styles';
 
@@ -20,6 +16,7 @@ import { fal } from '@fortawesome/pro-light-svg-icons';
 import { fass } from '@fortawesome/sharp-solid-svg-icons';
 
 import { Icon } from './Images.jsx'
+import { getContrastYIQ } from './utils/colors.js';
 
 const faTypes = ["fal", "fas", "fab", "fad"];
 
@@ -28,7 +25,6 @@ const faTypes = ["fal", "fas", "fab", "fad"];
 // fab -> brands
 // fad -> duotone (pro only)
 // fass -> sharp
-import { getContrastYIQ } from './utils/colors.js';
 library.add(fab, fas, fal, fass);
 
 
@@ -182,7 +178,7 @@ const ChevronProcess = ({ children, minWidth, maxWidth }, key = 0) => {
     return (
         <Box key={key} sx={{ display: "flex", py: "1%", fontSize: 'xsmall', minHeight: "5em", maxHeight: '10em' }}>
             <Box id='0' sx={{
-                height: '100%', py: '0.5%', pl: "2%", display: "flex", alignItems: "center", backgroundColor: 'background.tertiary', borderTopLeftRadius: "20px", borderBottomLeftRadius: "20px", color: getContrastYIQ(theme.palette.background.tertiary, theme)
+                py: '0.5%', pl: "2%", display: "flex", alignItems: "center", backgroundColor: 'background.tertiary', borderTopLeftRadius: "20px", borderBottomLeftRadius: "20px", color: getContrastYIQ(theme.palette.background.tertiary, theme)
             }}>
 
                 <Icon type={type} sx={{ px: "2%" }} style={{ width: "50px", height: "50px" }} >{icon}</Icon>
@@ -291,7 +287,7 @@ const StatementBanner = ({ children, sx = {}, ...props }) => {
 
     // new handler
 
-    if (children[0] && children[0].type === 'h3' && children[0].props.children) { // first part is a header
+    if (children[0] && children[0].type === 'h3' && children[0].props.children || children[0] && typeof children[0].type === 'function' && children[0].type.name === 'h3' ) { // first part is a header
         header = children[0].props.children
         children = children.filter(function(obj, index) { // remove the header
             return index !== 0;
@@ -329,7 +325,8 @@ const StatementBanner = ({ children, sx = {}, ...props }) => {
     if (icon) {
         padding = '7px'
     }
-
+    console.log('StatementBanner:icon:type: ', type, ' :icon: ', icon);
+    console.log('StatementBanner:text: ', text);
     return (
         <Box sx={{ my: "0.5%" }}>
             {header && <Box sx={{ ...statementTheme, pt: '1%', pb: '1%', borderRadius: '8px' }}>{header}</Box>}
@@ -365,7 +362,7 @@ const InsightTable = ({ children, sx = {}, splitter = true, ...props }) => {
         )
         )
         return (
-            <Table sx={{ minWidth: 650 }} aria-label="simple table">
+            <Table sx={{ minWidth: 650, background: "unset", border: "unset" }}>
                 <TableBody>
                     {list.map((item, i) => (
                 <Insight table={true} row={i} maxRows={list.length} splitter={splitter} key={i} sx={sx}>{React.Children.toArray(item.props.children).filter(item => item !== "\n")}</Insight>

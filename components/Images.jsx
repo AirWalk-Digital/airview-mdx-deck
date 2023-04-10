@@ -39,5 +39,15 @@ const Icon = ({ children, type = "fal", size = '75px', sx = {}, ...props }) => {
   return (icon);
 };
 
-export { FaIcon, Icon }
+const Team = ({ children }) => {
+  let content = getListFromContent(children);
+
+  return (<></>)
+
+}
+
+
+export { FaIcon, Icon, Team }
+
+
 
