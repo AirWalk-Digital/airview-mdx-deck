@@ -20,6 +20,7 @@ RUN git config --global url."git@ssh.dev.azure.com:".insteadOf "https://ssh.dev.
 
 ## fix npm file issues
 RUN mkdir /tmp/npm \
+&& mkdir /tmp/npm/lib \
 && mkdir /tmp/npm-cache \
 && mkdir /tmp/app \
 && npm config set prefix /tmp/npm \
