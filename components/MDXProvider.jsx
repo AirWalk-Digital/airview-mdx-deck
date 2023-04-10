@@ -30,6 +30,7 @@ import {FaIcon, Icon} from './Images.jsx';
 import { ProgressTable } from './Tables.jsx';
 import { HeaderCard, Nest } from './Cards';
 import { Font } from './Styling';
+import { MermaidDiagram } from "./Diagrams";
 // Layouts 
 import {Layout, Column, Item } from './Layouts';
 import { TitleSlide } from "../layouts/TitleLayout";
@@ -82,6 +83,7 @@ export const mdComponents = {
   ProgressTable,
   HeaderCard, Nest,
   Font,
+  MermaidDiagram,
   // layouts
   TitleSlide,
   Layout, Column, Item

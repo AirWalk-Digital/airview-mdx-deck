@@ -1,47 +1,43 @@
 import React from 'react';
-// import cx from 'clsx';
-import { makeStyles } from '@material-ui/core/styles';
-import Card from '@mui/material/Card';;
+import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardHeader from '@mui/material/CardHeader';
 import Grid from '@mui/material/Grid';
 import { useTheme } from '@mui/material/styles';
-
 import { getContrastYIQ } from './utils/colors.js';
 
-const useStyles = makeStyles(() => ({
-    card: {
-        borderRadius: '10px',
-        transition: '0.3s',
-        width: '100%',
-        height: '100%',
-        overflow: 'hidden',
-        background: '#ffffff',
-    },
-    pill: {
-        borderRadius: '7px',
-        transition: '0.3s',
-        width: '100%',
-        overflow: 'hidden',
-        background: '#ffffff',
-    },
-    cardheader: {
-    },
-    content: {
-        paddingTop: '1%',
-        display: 'flex',
-        flexWrap: 'wrap',
-        textAlign: 'left',
-        overflowX: 'auto',
-        '& table': {
-            marginBottom: 0,
-        }
-    },
-}));
+// const useStyles = makeStyles(() => ({
+//     card: {
+//         borderRadius: '10px',
+//         transition: '0.3s',
+//         width: '100%',
+//         height: '100%',
+//         overflow: 'hidden',
+//         background: '#ffffff',
+//     },
+//     pill: {
+//         borderRadius: '7px',
+//         transition: '0.3s',
+//         width: '100%',
+//         overflow: 'hidden',
+//         background: '#ffffff',
+//     },
+//     cardheader: {
+//     },
+//     content: {
+//         paddingTop: '1%',
+//         display: 'flex',
+//         flexWrap: 'wrap',
+//         textAlign: 'left',
+//         overflowX: 'auto',
+//         '& table': {
+//             marginBottom: 0,
+//         }
+//     },
+// }));
 
 const HeaderCard = ({ children, color = 'secondary', sx }) => {
     const theme = useTheme();
-    const classes = useStyles();
     let heading = '';
     let subheading = '';
     if (children && Object.keys(children).length === 0 && children.constructor === Object) { children = '' } else {
@@ -63,14 +59,33 @@ const HeaderCard = ({ children, color = 'secondary', sx }) => {
     // console.log('HeaderCard:children : ', children)
     return (
         <Grid item xs={3} sx={{ paddingLeft: '10px', paddingRight: '10px', overFlow: 'hidden', maxHeight: '100%' }}>
-            <Card variant="outlined" className={classes.card} sx={{ ...sx }}>
+            <Card variant="outlined" sx={{ 
+               borderRadius: '10px',
+               transition: '0.3s',
+               width: '100%',
+               height: '100%',
+               overflow: 'hidden',
+               background: '#ffffff',
+              ...sx }}>
                 {heading && <CardHeader
                     title={heading}
-                    titleTypographyProps={{ color: getContrastYIQ(theme.palette.background[color], theme), fontSize: '2rem' }}
+                    titleTypographyProps={{ color: getContrastYIQ(theme.palette.background[color], theme), fontSize: '1.8rem' }}
                     subheader={subheading}
-                    subheaderTypographyProps={{ color: getContrastYIQ(theme.palette.background[color], theme), fontSize: '1.8rem' }}
-                    sx={{ backgroundColor: 'background.' + color, color: getContrastYIQ(theme.palette.background[color], theme) }} />}
-                <CardContent className={classes.content}>
+                    subheaderTypographyProps={{ color: getContrastYIQ(theme.palette.background[color], theme), fontSize: '1.6rem' }}
+                    sx={{ fontSize: '2rem', backgroundColor: 'background.' + color, color: getContrastYIQ(theme.palette.background[color], theme) }} />}
+                <CardContent sx={{
+                  paddingTop: '1%',
+                  display: 'flex',
+                  flexWrap: 'wrap',
+                  textAlign: 'left',
+                  overflowX: 'auto',
+                  '& table': {
+                      marginBottom: 0,
+                  },
+                  '& h1': {
+                    fontSize: '1.8rem',
+                }
+                }}>
                     {children && children}
                 </CardContent>
             </Card>
@@ -80,7 +95,6 @@ const HeaderCard = ({ children, color = 'secondary', sx }) => {
 
 const Nest = ({ children, color = 'secondary', width=3, level=0, sx }) => {
     const theme = useTheme();
-    const classes = useStyles();
     let heading = '';
     let subheading = '';
     let bgColor = 'paper'
@@ -107,14 +121,29 @@ const Nest = ({ children, color = 'secondary', width=3, level=0, sx }) => {
     // console.log('HeaderCard:children : ', children)
     return (
         <Grid item xs={width} sx={{ paddingLeft: '10px', paddingRight: '10px', overFlow: 'hidden', maxHeight: '100%', ...sx }}>
-            <Card variant="outlined" className={classes.pill} sx={{ ...sx }}>
+            <Card variant="outlined" sx={{ 
+              borderRadius: '7px',
+              transition: '0.3s',
+              width: '100%',
+              overflow: 'hidden',
+              background: '#ffffff',
+              ...sx }}>
                 {heading && <CardHeader
                     title={heading}
                     titleTypographyProps={{ color: getContrastYIQ(theme.palette.background[color], theme), fontSize: '1rem' }}
                     subheader={subheading}
                     subheaderTypographyProps={{ color: getContrastYIQ(theme.palette.background[color], theme), fontSize: '0.8rem' }}
                     sx={{ backgroundColor: 'background.' + color, color: getContrastYIQ(theme.palette.background[color], theme) }} />}
-                <CardContent className={classes.content}sx={{fontSize: '0.8rem', backgroundColor: 'background.' + bgColor, color: getContrastYIQ(theme.palette.background[bgColor], theme)}}>
+                <CardContent sx={{
+                   paddingTop: '1%',
+                   display: 'flex',
+                   flexWrap: 'wrap',
+                   textAlign: 'left',
+                   overflowX: 'auto',
+                   '& table': {
+                       marginBottom: 0,
+                   },
+                  fontSize: '0.8rem', backgroundColor: 'background.' + bgColor, color: getContrastYIQ(theme.palette.background[bgColor], theme)}}>
                     {children && <Wrapper color={color} level={level+1} width={width} sx={{mt:'5px'}}>{children}</Wrapper>}
                 </CardContent>
             </Card>

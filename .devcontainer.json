@@ -27,6 +27,6 @@
 	},
 	"postCreateCommand": "",
 	"postAttachCommand": {
-		"fix npm" : "rm -Rf /workspaces/mdx-deck-etherpad/node_modules && ln -s /tmp/npm/node_modules /workspaces/mdx-deck-etherpad/node_modules"
+		"fix npm" : "rm -Rf /workspaces/mdx-deck-etherpad/node_modules && ln -s /tmp/app/node_modules /workspaces/mdx-deck-etherpad/node_modules"
 		
 }
