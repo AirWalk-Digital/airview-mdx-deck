@@ -2,7 +2,6 @@ import React from 'react';
 import { Meta } from '@storybook/react';
 import { HeaderCard, Nest } from '../components/Cards';
 import Grid from '@mui/material/Grid';
-import { MDXProvider } from "@mdx-js/react";
 
 const components = {
   h1: (props) => <h1 style={{ color: "red" }} {...props} />,
@@ -29,11 +28,9 @@ export default {
 } as Meta;
 
 const Template: Story = (args) => (
-  <MDXProvider components={components}>
   <HeaderCard {...args}>
     {args.children}
   </HeaderCard>
-  </MDXProvider>
 );
 
 export const Default = Template.bind({});
