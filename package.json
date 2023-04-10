@@ -46,6 +46,7 @@
     "tls": "^0.0.1"
   },
   "devDependencies": {
+    "@storybook/addon-docs": "^7.0.2",
     "@storybook/addon-essentials": "^7.0.2",
     "@storybook/addon-interactions": "^7.0.2",
     "@storybook/addon-links": "^7.0.2",
