@@ -6,40 +6,12 @@ import Grid from '@mui/material/Grid';
 import { useTheme } from '@mui/material/styles';
 import { getContrastYIQ } from './utils/colors.js';
 
-// const useStyles = makeStyles(() => ({
-//     card: {
-//         borderRadius: '10px',
-//         transition: '0.3s',
-//         width: '100%',
-//         height: '100%',
-//         overflow: 'hidden',
-//         background: '#ffffff',
-//     },
-//     pill: {
-//         borderRadius: '7px',
-//         transition: '0.3s',
-//         width: '100%',
-//         overflow: 'hidden',
-//         background: '#ffffff',
-//     },
-//     cardheader: {
-//     },
-//     content: {
-//         paddingTop: '1%',
-//         display: 'flex',
-//         flexWrap: 'wrap',
-//         textAlign: 'left',
-//         overflowX: 'auto',
-//         '& table': {
-//             marginBottom: 0,
-//         }
-//     },
-// }));
 
 const HeaderCard = ({ children, color = 'secondary', sx }) => {
     const theme = useTheme();
     let heading = '';
     let subheading = '';
+    console.log('HeaderCard : ', children)
     if (children && Object.keys(children).length === 0 && children.constructor === Object) { children = '' } else {
         if (Array.isArray(children)) { // multiple lines
             if (children[0].type.name === 'h1') {
