@@ -1,4 +1,6 @@
 import type { StorybookConfig } from "@storybook/nextjs";
+import { webpackFinal } from "./webpack.config";
+
 const config: StorybookConfig = {
   stories: ["../stories/**/*.mdx", "../stories/**/*.stories.@(js|jsx|ts|tsx)"],
   addons: [
@@ -13,5 +15,6 @@ const config: StorybookConfig = {
   docs: {
     autodocs: "tag",
   },
+  webpackFinal
 };
 export default config;

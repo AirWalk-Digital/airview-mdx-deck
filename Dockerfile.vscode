@@ -41,5 +41,5 @@ RUN doas chown -R $USERNAME /tmp/npm
 RUN doas chown -R $USERNAME /tmp/app
 RUN npm config set prefix /tmp/npm
 RUN yarn config set prefix /tmp/npm
-# RUN cd /tmp/app && yarn
+RUN cd /tmp/app && yarn
 
