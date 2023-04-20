@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "export": "next build && next export"
+    "export": "next build && next export",
+    "storybook": "storybook dev -p 6006",
+    "pull": "cp /tmp/app/package* /workspaces/mdx-deck-etherpad/ && cp /tmp/app/yarn* /workspaces/mdx-deck-etherpad/"
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",
@@ -46,7 +48,6 @@
   "devDependencies": {
     "@types/node": "18.11.18",
     "@types/react": "^17.0.16",
-    "babel-plugin-styled-components": "^1.12.0",
     "typescript": "^4.3.5"
   },
   "engines": {

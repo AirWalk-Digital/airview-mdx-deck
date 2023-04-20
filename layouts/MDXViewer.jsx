@@ -122,12 +122,14 @@ function MDXViewer({ children, next }) {
   // 2480 x 3508 A4
 
   return (
-    <Zoom maxWidth={parseInt(pageSize.width)} width={parseInt(pageSize.width)} maxHeight={parseInt(pageSize.height)} height={parseInt(pageSize.height)} sx={{maxWidth: '100vw', maxHeight: '100vh'}}>
+    // <Zoom maxWidth={parseInt(pageSize.width)} width={parseInt(pageSize.width)} maxHeight={parseInt(pageSize.height)} height={parseInt(pageSize.height)} sx={{maxWidth: '100vw', maxHeight: '100vh'}}>
+     
+    //  <Zoom maxWidth={100} maxHeight={100} width={100} height={100} sx={{maxWidth: '100vw', maxHeight: '100vh'}}>
 
-    <Box sx={{width:'2480px',minHeight: '3508px', px: "25px", pt: '20px', backgroundColor: 'background.paper', position:'relative'}}>
+    <Box sx={{width:'100%',minHeight: '3508px', px: "25px", pt: '20px', backgroundColor: 'background.paper', position:'relative'}}>
       <GlobalStyles styles={globalStyles} />
       {children}
     </Box>
-    </Zoom>
+    // </Zoom>
   );
 }
