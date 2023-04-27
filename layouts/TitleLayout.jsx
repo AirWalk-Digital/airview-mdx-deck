@@ -39,20 +39,23 @@ function getImageBrightness(imageSrc,callback) {
   }
 };
 
-export const TitleSlide = ({ background = 'image1.jpeg', color = 'white', children, sx = {} }) => {
+export const TitleSlide = ({ background = 'image1.jpeg', logo, color = 'white', children, sx = {}, props }) => {
   const [textColor, setTextColor] = useState(0)
   const [awLogo, setAwLogo] = useState('/logos/airwalk-logo-negative.png')
 
-  console.log('background : ', background)
+  console.log('TitleSlide : ', props)
+
+  
 
   useEffect(() => {
     var imgs = document.body.getElementsByTagName('img');
     getImageBrightness(imgs[0].src,function(brightness) {
       if (brightness < 100) {
         setTextColor('text.invtext')
+        if (logo) {setAwLogo(logo)};
       } else {
         setTextColor('text.main')
-        setAwLogo('/logos/airwalk-logo.png')
+        if (!logo) {setAwLogo('/logos/airwalk-logo.png')} else {setAwLogo(logo)};
       }
       // console.log('brightness : ', brightness);
   }); 

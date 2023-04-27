@@ -46,7 +46,9 @@ export default dynamic(() => Promise.resolve(SlidePage), {
   ssr: false,
 }); 
 
-function SlidePage({ children, next }) {
+function SlidePage({ frontmatter, children, next }) {
+
+  console.log('SlidePage:frontmatter ', frontmatter)
   const {
     currentSlide,
     setSlide,

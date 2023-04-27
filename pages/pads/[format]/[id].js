@@ -1,4 +1,3 @@
-import { serialize } from 'next-mdx-remote/serialize'
 import { MDXRemote } from 'next-mdx-remote'
 import { useState, useEffect, } from 'react';
 import { mdComponents } from "../../../components/MDXProvider";
@@ -6,6 +5,25 @@ import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { theme } from '../../../constants/theme';
 import { useRouter } from 'next/router'
+// import SlidePage from '../../../layouts/SlidePage'
+
+function Wrap(pad) {
+  console.log('Wrap:pad: ', pad)
+  const scope = { frontmatter: {title: 'test', image: 'test-image.png'}}
+  console.log('Wrap:scope: ', pad.pad.source.frontmatter)
+  if (pad.pad.format === 'SlidePage') {
+    return (
+      // <MDXRemote {...pad.pad.source} components={mdComponents} scope={scope}/>
+      <MDXRemote {...pad.pad.source} components={mdComponents} />
+    )
+  } else if (pad.pad.format === 'PrintSlide') {
+    return (<MDXRemote {...pad.pad.source} components={mdComponents} />)
+
+  } else {
+      return (<MDXRemote {...pad.pad.source} components={mdComponents} />)
+  }
+}
+
 
 export default function Pad() {
   const router = useRouter()
@@ -26,7 +44,7 @@ export default function Pad() {
         .then((res) => res.json())
         .then(data => {
             if (data.source && !data.error) { 
-              console.log(data.source)
+              console.log(data)
 
               setPad(data)
               setRev(newrev);
@@ -51,7 +69,7 @@ export default function Pad() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-        {pad && <MDXRemote {...pad.source} components={mdComponents} /> }
+        {pad && <Wrap pad={pad} /> }
     </ThemeProvider>
   )
 }

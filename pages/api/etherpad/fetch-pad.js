@@ -15,6 +15,7 @@ export default async function handler(req, res) {
     params: { 'apikey': process.env.ETHERPAD_API_KEY },
   });
   let pad = null;
+  let format = null;
   try {
     // Get text for one pad
     // http://localhost:9001/api/1/getText?apikey=f50403c112c30485607554afa2cf37675ef791681ad36001134f55b05a3deca1&padID=yXpdXIgw-NSdfaXdXoGQ
@@ -29,14 +30,17 @@ export default async function handler(req, res) {
 
     // console.log('pad : ', pad)
     if (req.query.format === 'ppt') {
-      pad = '<SlidePage>\n' + pad + '\n</SlidePage>'
+      pad = '<SlidePage frontmatter={frontmatter}>\n' + pad + '\n</SlidePage>'
+      format = 'SlidePage';
     } else if (req.query.format === 'print') {
-      pad = '<PrintSlide>\n' + pad + '\n</PrintSlide>'
+      // pad = '<PrintSlide>\n' + pad + '\n</PrintSlide>'
+      format = 'PrintSlide';
     } else {
       
       pad = removeSection(pad, 'TitleSlide')
 
-      pad = '<MDXViewer>\n' + pad + '\n</MDXViewer>'
+      // pad = '<MDXViewer>\n' + pad + '\n</MDXViewer>'
+      format = 'Page'
     }
   } catch (error) {
     console.log(error)
@@ -47,14 +51,12 @@ export default async function handler(req, res) {
   }
   let errorcode = false;
   if (!pad) {errorcode = true}
-  // console.log('fetch-pad.js : ', pad)
+  // console.log('fetch-pad.js : ', pad.source.frontmatter)
   const error_message = `
-  <SlidePage>
   # Error
   
   Content formatted incorrectly
-  </SlidePage>
   `
   const mdxSource = await serialize(pad ?? error_message, { scope: {}, mdxOptions : { ...MDXoptions}, parseFrontmatter: true } )
-  res.status(200).json({ source: mdxSource, error: errorcode })
+  res.status(200).json({ source: mdxSource, error: errorcode, format: format })
 }
