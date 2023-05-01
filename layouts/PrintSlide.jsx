@@ -20,8 +20,6 @@ const globalStyles = `
 
   body,
   html {
-    overflow: auto;
-    width: 100vw;
     margin: 0;
     padding: 0;
     background-color: black;
@@ -38,6 +36,17 @@ const globalStyles = `
     display: flex;
     overflow: hidden;
     -webkit-overflow-scrolling: touch;
+  }
+
+  .a4-slide {
+    width: 210mm;
+    height: 297mm;
+    margin: 10mm auto;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    position: relative;
+    page-break-after: always;
   }
 
 `;
@@ -77,18 +86,19 @@ function PrintSlide({ children, next }) {
 
   });
 
-  const pageSize = { width: 1920, height: 1080 }
+  const pageSize = { width: '210mm', height: '297mm' }
 
   return (
     <>
       <GlobalStyles styles={globalStyles} />
       {generatedSlides.map(d => (
+        <div className="a4-slide">
         <Zoom maxWidth={parseInt(pageSize.width)} width={parseInt(pageSize.width)} maxHeight={parseInt(pageSize.height)} height={parseInt(pageSize.height)} sx={{ maxWidth: '100vw', maxHeight: '100vh' }}>
           <div id="slide" style={{ width: pageSize.width, height: pageSize.height }}>
             <Slide>{d}</Slide>
           </div>
         </Zoom>
-
+        </div>
       ))}
     </>
   );

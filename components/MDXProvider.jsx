@@ -23,16 +23,17 @@ import { Typography } from '@mui/material';
 import Alert from '@mui/material/Alert';
 
 // Custom components
-
-import { Header, Banner, Footer } from './HeaderFooter';
+import { TitleSlide, Header, Banner, Footer, Insights, Chevrons, Layout, Column, Item, FaIcon, Icon } from 'airview-mdx'
+// import { Header, Banner, Footer } from './HeaderFooter';
+// import { InsightTable, Insight, ChevronProcess, ChevronProcessTable, StatementBanner } from './Playback';
 import { InsightTable, Insight, ChevronProcess, ChevronProcessTable, StatementBanner, Roadmap } from './Playback';
-import {FaIcon, Icon} from './Images.jsx';
+// import {FaIcon, Icon} from './Images.jsx';
 import { ProgressTable } from './Tables.jsx';
 import { HeaderCard, Nest } from './Cards';
 import { Font } from './Styling';
 // Layouts 
-import {Layout, Column, Item } from './Layouts';
-import { TitleSlide } from "../layouts/TitleLayout";
+// import {Layout, Column, Item } from './Layouts';
+// import { TitleSlide } from "../layouts/TitleLayout";
 
 export const mdComponents = {
   h1: (props) => <Typography variant="h1">{props.children}</Typography>,
