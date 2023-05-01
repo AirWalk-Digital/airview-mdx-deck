@@ -13,15 +13,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import { useTheme } from '@mui/material/styles';
 
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { fab } from '@fortawesome/free-brands-svg-icons';
-import { fas } from '@fortawesome/pro-solid-svg-icons';
-import { fal } from '@fortawesome/pro-light-svg-icons';
-import { fass } from '@fortawesome/sharp-solid-svg-icons';
+// import { library } from '@fortawesome/fontawesome-svg-core';
+// import { fab } from '@fortawesome/free-brands-svg-icons';
+// import { fas } from '@fortawesome/pro-solid-svg-icons';
+// import { fal } from '@fortawesome/pro-light-svg-icons';
+// import { fass } from '@fortawesome/sharp-solid-svg-icons';
 
 import { Icon } from './Images.jsx'
 
-const faTypes = ["fal", "fas", "fab", "fad"];
+const faTypes = ["fal"];
+
+// const faTypes = ["fal", "fas", "fab", "fad"];
 
 // fal -> light
 // fas -> solid
@@ -29,7 +31,7 @@ const faTypes = ["fal", "fas", "fab", "fad"];
 // fad -> duotone (pro only)
 // fass -> sharp
 import { getContrastYIQ } from './utils/colors.js';
-library.add(fab, fas, fal, fass);
+// library.add(fab, fas, fal, fass);
 
 
 function getListContent(content, i) {
