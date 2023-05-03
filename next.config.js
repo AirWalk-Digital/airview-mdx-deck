@@ -3,6 +3,7 @@ const withMDX = require("@next/mdx")({
 });
 
 const path = require('path');
+const webpack = require('webpack');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -40,7 +41,7 @@ const nextConfig = {
   experimental: {
     appDir: true,
   },
-  webpack: (config) => {
+  webpack: (config, { isServer }) => {
     // Add the alias configuration to the webpack config
     config.resolve.alias = {
       ...config.resolve.alias,
@@ -50,6 +51,10 @@ const nextConfig = {
       '@emotion/react': path.join(__dirname, 'node_modules/@emotion/react'),
       // 'emotion-theming': path.resolve('./node_modules/@emotion/react'),
 
+    };
+    // Add the configuration to disable fs module on the client-side
+    if (!isServer) {
+      config.plugins.push(new webpack.IgnorePlugin({ resourceRegExp: /^fs$/ }));
     };
     return config;
   },
