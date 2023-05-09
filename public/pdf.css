@@ -1,8 +1,3 @@
-/* .pagedjs_pages {
-    
-    margin: 0 auto;
-} */
-
 
 .pagedjs_page {
     background-color: white;
@@ -15,39 +10,7 @@
     margin-right: auto;
 }
 
-/* .pagedjs_ .pagedjs_page:last-of-type {
-    margin-bottom: 10mm;
-}  */
-
-/* show the margin-box */
-/* 
-.pagedjs_margin-top-left-corner-holder,
-.pagedjs_margin-top,
-.pagedjs_margin-top-left,
-.pagedjs_margin-top-center,
-.pagedjs_margin-top-right,
-.pagedjs_margin-top-right-corner-holder,
-.pagedjs_margin-bottom-left-corner-holder,
-.pagedjs_margin-bottom,
-.pagedjs_margin-bottom-left,
-.pagedjs_margin-bottom-center,
-.pagedjs_margin-bottom-right,
-.pagedjs_margin-bottom-right-corner-holder,
-.pagedjs_margin-right,
-.pagedjs_margin-right-top,
-.pagedjs_margin-right-middle,
-.pagedjs_margin-right-bottom,
-.pagedjs_margin-left,
-.pagedjs_margin-left-top,
-.pagedjs_margin-left-middle,
-.pagedjs_margin-left-bottom {
-    box-shadow: 0 0 0 1px inset var(--color-marginBox);
-} */
-
 @page :first {
-    /* background: url(./backgrounds/image17-bg.jpeg) no-repeat; */
-    /* background: url(/backgrounds/cover.jpg) no-repeat; */
-    /* background-size: cover; */
     margin: 0;
 }
 
@@ -65,8 +28,7 @@
     margin-right: 25px;
     margin-top: 10px;
     margin-bottom: 50px;
-    /* width: 100%; */
-    /* counter-reset: page; */
+
     @top-left-corner {
         background: #4AC7F0;
         content: '';
@@ -123,7 +85,6 @@
         font-size: 16px;
         color: white;
         height: 1cm;
-        opacity: .5;
         text-align: center;
         width: 1cm;
     }
