@@ -5,12 +5,12 @@ const glob = require("glob");
 
 export default async function handler(req, res) {
 
-  const { fileType, fileName } = req.query;
+  const { filePath } = req.query;
 
   try {
     // Resolve the absolute path of the file
     // const absolutePath = path.resolve(filePath);
-    const absolutePath = path.join(process.cwd(), '/', `${fileType}/${fileName}`)
+    const absolutePath = path.join(process.cwd(), '/', req.query.filePath)
     console.log('absolutePath: ', absolutePath)
     // Read the file from the filesystem
     const fileContent = fs.readFileSync(absolutePath, 'utf-8');
