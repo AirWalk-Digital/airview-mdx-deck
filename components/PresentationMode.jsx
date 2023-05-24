@@ -65,7 +65,7 @@ export default function PresentationMode({
           </div>
         </Sidebar>
       </PresentationFrame>
-    )
+    );
   }
   return children
 }
