@@ -290,12 +290,7 @@ function DocumentView({ children }) {
       };
     }
   }, []);
-  let print;
-  if (typeof window !== "undefined") {
-    var mediaQueryList = window.matchMedia("print");
-    console.log(mediaQueryList.matches, "medieaquery");
-    print = mediaQueryList.matches;
-  }
+
   return (
     <>
       <div ref={mdxContainer} style={{ display: "none" }}>

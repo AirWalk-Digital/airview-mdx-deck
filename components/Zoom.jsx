@@ -112,19 +112,16 @@ const Zoom = ({
   }, [wrapperWidth, wrapperHeight]);
 
   return (
-    <Box
-      ref={wrapperElement}
-      sx={sx}
-      {...props}
-    >
+    <Box ref={wrapperElement} sx={sx} {...props}>
       <Box
         ref={scaleElement}
         sx={{
-          width: '100%',
-          height: '100%',
-          boxSizing: 'border-box',
-          transformOrigin: '0 0'
+          width: "100%",
+          height: "100%",
+          boxSizing: "border-box",
+          transformOrigin: "0 0",
         }}
+        className="zoombox"
       >
         {children}
       </Box>
