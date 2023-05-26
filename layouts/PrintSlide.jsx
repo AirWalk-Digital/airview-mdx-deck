@@ -63,33 +63,43 @@ function PrintSlide({ children, next }) {
       generatedSlides[generatorCount] = [];
     }
 
-    if (typeof childType !== 'function') {
+    if (typeof childType !== "function") {
       // Add slide content to current generated slide
       if (!Array.isArray(generatedSlides[generatorCount])) {
         generatedSlides[generatorCount] = [];
       }
       generatedSlides[generatorCount].push(child);
       // Check if it's a SpeakerNotes component
-    } else if (childType.name !== 'SpeakerNotes') {
+    } else if (childType.name !== "SpeakerNotes") {
       // Add slide content to current generated slide
       generatedSlides[generatorCount].push(child);
     }
-
   });
 
-  const pageSize = { width: 1920, height: 1080 }
-
+  const pageSize = { width: "162.6mm", height: "91.4mm" };
+  // size:;
   return (
     <>
       <GlobalStyles styles={globalStyles} />
-      {generatedSlides.map(d => (
-        <Zoom maxWidth={parseInt(pageSize.width)} width={parseInt(pageSize.width)} maxHeight={parseInt(pageSize.height)} height={parseInt(pageSize.height)} sx={{ maxWidth: '100vw', maxHeight: '100vh' }}>
+      {generatedSlides.map((d) => (
+        <Zoom
+          maxWidth={parseInt(pageSize.width)}
+          width={parseInt(pageSize.width)}
+          maxHeight={parseInt(pageSize.height)}
+          height={parseInt(pageSize.height)}
+          sx={{ maxWidth: "100vw", maxHeight: "100vh" }}
+        >
           {/* // <Zoom maxWidth={parseInt(pageSize.width)} width={parseInt(pageSize.width)} maxHeight={parseInt(pageSize.height)} height={parseInt(pageSize.height)} > */}
-          <div id="slide" style={{ width: pageSize.width, height: pageSize.height }}>
+          <div
+            id="slide"
+            style={{
+              width: pageSize.width,
+              height: pageSize.height,
+            }}
+          >
             <Slide>{d}</Slide>
           </div>
         </Zoom>
-
       ))}
     </>
   );

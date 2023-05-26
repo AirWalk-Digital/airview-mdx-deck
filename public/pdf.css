@@ -28,9 +28,11 @@
   margin-right: auto; */
   margin: 0 auto;
 }
-@media print{
-  
-}
+/* @media print{
+  .zoombox{
+    margin: 5px;
+  }
+} */
 html{
   --serif: 'spectral', serif;
   --sans-serif: 'hk-grotesk', sans-serif;
