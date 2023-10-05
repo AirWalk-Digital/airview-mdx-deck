@@ -31,7 +31,7 @@ import { TopBar } from '@/components/dashboard';
 import { ScrollToTop } from '@/components/utils/ScrollToTop'
 import {ScrollToBottom }from '@/components/utils/ScrollToBottom'
 
-import ChatBot from '../components/askJim'
+import ChatBot from '../components/chat-bot'
 
 const SiteSection = ({ title, description, link }) => {
 
