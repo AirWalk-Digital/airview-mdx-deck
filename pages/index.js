@@ -31,7 +31,7 @@ import { TopBar } from '@/components/dashboard';
 import { ScrollToTop } from '@/components/utils/ScrollToTop'
 import {ScrollToBottom }from '@/components/utils/ScrollToBottom'
 
-
+import ChatBot from '../components/askJim'
 
 const SiteSection = ({ title, description, link }) => {
 
@@ -105,7 +105,9 @@ const LandingPage = () => {
         </Container>
       </section>
 
-
+      <section>
+        <ChatBot />
+      </section>
 
       {/* Features Section */}
       <section

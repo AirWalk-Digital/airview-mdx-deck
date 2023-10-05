@@ -3,16 +3,15 @@ import Link from "next/link";
 import { createHashRouter, RouterProvider } from "react-router-dom";
 import { initializeIcons } from "@fluentui/react";
 
-import styles from "./MyComponent.module.css";
+import styles from "./ChatBot.module.css";
 
-import Layout from "./pages/layout/Layout";
 import Chat from "./pages/chat/Chat";
 
 // import "./index.css";
 
 initializeIcons();
 
-const MyComponent = () => {
+const ChatBot = () => {
   const [isChatActive, setIsChatActive] = useState(false);
 
   const toggleChat = () => {
@@ -25,9 +24,9 @@ const MyComponent = () => {
   }, [isChatActive]);
 
   return (
-    <div className={styles.myComponentContainer}>
+    <div className={styles.chatBotContainer}>
       <div
-        className={styles.myComponentHeader}
+        className={styles.chatBotHeader}
         onClick={toggleChat}
         role="button"
       >
@@ -35,11 +34,11 @@ const MyComponent = () => {
         <span>{isChatActive ? "-" : "+"}</span>
       </div>
       <div
-        className={`${styles.myComponentContent} ${
+        className={`${styles.chatBotContent} ${
           isChatActive ? "active" : ""
         }`}
       >
-        <div className={styles.myComponentChat}>
+        <div className={styles.chatBotChat}>
           <Chat />
         </div>
       </div>
@@ -47,5 +46,5 @@ const MyComponent = () => {
   );
 };
 
-export default MyComponent;
+export default ChatBot;
 

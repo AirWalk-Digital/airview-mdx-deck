@@ -1,4 +1,4 @@
-.myComponentContainer {
+.chatBotContainer {
   position: fixed;
   bottom: 20px;
   right: 20px;
@@ -9,7 +9,7 @@
   overflow: hidden;
 }
 
-.myComponentHeader {
+.chatBotHeader {
   padding: 10px;
   background-color: #f0f0f0;
   border-bottom: 1px solid #ccc;
@@ -20,7 +20,7 @@
   cursor: pointer;
 }
 
-.myComponentContent {
+.chatBotContent {
   padding: 20px;
   overflow-y: auto;
   height: calc(100% - 50px);
@@ -29,25 +29,25 @@
   display: var(--chat-active, none);
 }
 
-.myComponentChat {
+.chatBotChat {
   width: 100%;
   display: flex;
   flex-direction: column;
 }
 
-.myComponentChatBubble {
+.chatBotChatBubble {
   padding: 10px;
   margin: 5px 0;
   max-width: 80%;
   word-wrap: break-word;
 }
 
-.myComponentChatBubble.bot {
+.chatBotChatBubble.bot {
   background-color: #e0f7fa;
   align-self: flex-start;
 }
 
-.myComponentChatBubble.user {
+.chatBotChatBubble.user {
   background-color: #aed581;
   align-self: flex-end;
 }
