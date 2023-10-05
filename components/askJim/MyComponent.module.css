@@ -1,0 +1,53 @@
+.myComponentContainer {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  width: 500px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.myComponentHeader {
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-bottom: 1px solid #ccc;
+  border-radius: 10px 10px 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.myComponentContent {
+  padding: 20px;
+  overflow-y: auto;
+  height: calc(100% - 50px);
+  background-color: white;
+  max-height: 80vh;
+  display: var(--chat-active, none);
+}
+
+.myComponentChat {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.myComponentChatBubble {
+  padding: 10px;
+  margin: 5px 0;
+  max-width: 80%;
+  word-wrap: break-word;
+}
+
+.myComponentChatBubble.bot {
+  background-color: #e0f7fa;
+  align-self: flex-start;
+}
+
+.myComponentChatBubble.user {
+  background-color: #aed581;
+  align-self: flex-end;
+}
