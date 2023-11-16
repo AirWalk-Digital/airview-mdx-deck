@@ -12,6 +12,11 @@
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",
+    "@fluentui/react": "^8.110.7",
+    "@fluentui/react-icons": "^2.0.206",
+    "dompurify": "^3.0.4",
+    "@react-spring/web": "^9.7.3",
+    "react-router-dom": "^6.14.1",
     "@emotion/styled": "^11.10.5",
     "@fontsource/heebo": "^4.5.15",
     "@fontsource/roboto-mono": "^4.5.10",
