@@ -21,7 +21,7 @@ module.exports = {
       {
         name: {
           namespace: "airwalk-digital",
-          repository: "airview-next",
+          repository: "airview-mdx-deck",
         },
         "registry": "ghcr.io",
         skipLogin: true,
