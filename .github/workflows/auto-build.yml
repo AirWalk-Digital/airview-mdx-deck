@@ -43,7 +43,7 @@ jobs:
           container: redis # Use the Redis service container
           push: false
           load: true
-          tags: airwalk-digital/airview-next
+          tags: airwalk-digital/airview-mdx-deck
           secrets: |
             "FONTAWESOME_NPM_AUTH_TOKEN=${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}"
 

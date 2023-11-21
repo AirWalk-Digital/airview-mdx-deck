@@ -1,5 +1,5 @@
 {
-  "name": "airview-next",
+  "name": "mdx-deck-etherpad",
   "version": "0.0.0-semantic-release",
   "private": true,
   "scripts": {
@@ -8,7 +8,7 @@
     "start": "next start",
     "export": "next build && next export",
     "rebuild": "cp package* /tmp/npm/ && cd /tmp/npm && npm i",
-    "pull-packages": "cp /tmp/npm/package* /workspaces/airview-next/"
+    "pull-packages": "cp /tmp/npm/package* /workspaces/mdx-deck-etherpad/"
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",

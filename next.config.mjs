@@ -89,7 +89,7 @@ export default withMDX(nextConfig)
 //     silent: true,
 
 //     org: "airwalk-digital",
-//     project: "airview-next",
+//     project: "mdx-deck-etherpad",
 //   },
 //   {
 //     // For all available options, see:
